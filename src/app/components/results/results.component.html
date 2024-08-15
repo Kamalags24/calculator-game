@@ -1,0 +1,52 @@
+<!-- <div class="results-container">
+  <h2>Résultats des séquences</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Score</th>
+        <th>Précision</th>
+        <th>Difficulté</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sequence of sequences">
+        <td>{{ sequence.date | date : "short" }}</td>
+        <td>{{ sequence.score }}</td>
+        <td>{{ sequence.accuracy.toFixed(2) }}%</td>
+        <td>{{ sequence.difficulty | titlecase }}</td> -->
+<!-- <td><button (click)="showHistory(sequence)">Voir détails</button></td> -->
+<!-- </tr>
+    </tbody>
+  </table>
+</div> -->
+
+<div class="results-container">
+  <h2>Résultats des séquences</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Score</th>
+        <th>Précision</th>
+        <th>Difficulté</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sequence of sequences">
+        <td>{{ sequence.date | date : "short" }}</td>
+        <td>{{ sequence.score }}</td>
+        <td>{{ sequence.accuracy.toFixed(2) }}%</td>
+        <td>{{ sequence.difficulty | titlecase }}</td>
+        <td><button (click)="showHistory(sequence)">Voir détails</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-history
+  *ngIf="selectedSequence"
+  [sequence]="selectedSequence"
+></app-history>

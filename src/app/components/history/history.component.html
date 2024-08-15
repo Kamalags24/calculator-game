@@ -1,0 +1,21 @@
+<div class="history-container" *ngIf="sequence">
+  <h3>Historique de la séquence du {{ sequence.date | date : "short" }}</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Opération</th>
+        <th>Réponse utilisateur</th>
+        <th>Résultat correct</th>
+        <th>Statut</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let result of sequence.results">
+        <td>{{ result.operation }}</td>
+        <td>{{ result.userAnswer }}</td>
+        <td>{{ result.correctResult }}</td>
+        <td>{{ result.isCorrect ? "Correct" : "Incorrect" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

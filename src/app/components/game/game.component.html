@@ -1,0 +1,24 @@
+<div class="game-container">
+  <h2>Calcul Mental - {{ difficulty | titlecase }}</h2>
+  <div class="operation" *ngIf="currentOperation">
+    <h3>
+      {{ currentOperation.left }} {{ currentOperation.operator }}
+      {{ currentOperation.right }} = ?
+    </h3>
+    <input
+      [(ngModel)]="userAnswer"
+      (keyup.enter)="submitAnswer()"
+      placeholder="Votre réponse"
+    />
+    <p>Temps restant : {{ timeLeft }} secondes</p>
+  </div>
+  <div class="score">
+    <h4>Score : {{ score }}</h4>
+  </div>
+  <div class="difficulty">
+    <button (click)="changeDifficulty('easy')">Facile</button>
+    <button (click)="changeDifficulty('medium')">Moyen</button>
+    <button (click)="changeDifficulty('hard')">Difficile</button>
+  </div>
+  <button (click)="endGame()">Terminer la partie</button>
+</div>
